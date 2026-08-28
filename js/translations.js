@@ -35,6 +35,8 @@ window.translations = {
         'projects.subtitle': 'Explora algunos de los últimos trabajos realizados',
         'projects.code': 'Ver código',
         'view-page': 'Visitar página web',
+        'title-projects-2': 'Invictus Burger',
+    'info-projects-2': 'APP moderna y atractiva para restaurante, lo cual su comida estrella son las amburguesas con diseño responsive.',
 
         // Proyectos información individual
         'title-projects-1': 'App Deportiva MLB',
@@ -95,7 +97,8 @@ window.translations = {
         // Proyectos información individual
         'title-projects-1': 'MLB Sport App',
         'info-projects-1': 'Full-stack app with React, PHP, and MySQL for Venezuelan teams, featuring favorites and JWT authentication. Deployed on free hosting (Infinityfree).',
-
+'title-projects-2': 'Invictus Burger',
+    'info-projects-2': 'Modern and attractive landing page for a burger restaurant with responsive design.',
         // Contact (form)
         'contact.title': 'Contact Me',
         'contact.subtitle': 'Fill out the form and I will get back to you as soon as possible.',
