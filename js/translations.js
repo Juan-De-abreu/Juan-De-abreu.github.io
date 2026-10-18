@@ -37,10 +37,10 @@ window.translations = {
         // Certificados
         'certificates.title': 'Certificados',
         'certificates.subtitle': 'Mis certificaciones y logros profesionales',
-        'certificates.view': 'Ver PDF en Drive',
+        'certificates.view': 'Ver certificado',
         'certificates.cert1.title': 'Certificado de Desarrollo Full-Stack',
         'certificates.cert1.description': 'Certificación en desarrollo web full-stack con tecnologías modernas.',
-        'certificates.cert1.date': '2024',
+        'certificates.cert1.date': '2026',
 
         // Proyectos
         'projects.title': 'Proyectos',
@@ -70,7 +70,10 @@ window.translations = {
         'contact.success': 'Mensaje enviado correctamente. Gracias por contactarme.',
         
         // Footer
-        footer: '© 2025 Juan De Abreu. Hecho con TailwindCSS.'
+        footer: '© 2025 Juan De Abreu. Hecho con TailwindCSS.',
+        'footer.role': 'Desarrollador Full-Stack · React, PHP y MySQL',
+        'footer.availability': 'Disponible para nuevas oportunidades',
+        'footer.contactLabel': 'Contacto directo'
     },
     en: {
         // General
@@ -109,12 +112,12 @@ window.translations = {
         // Certificates
         'certificates.title': 'Certificates',
         'certificates.subtitle': 'My certifications and professional achievements',
-        'certificates.view': 'View PDF on Drive',
+        'certificates.view': 'View certificate',
         'certificates.opensInNewTab': 'Opens in new tab',
         'certificates.comingSoon': 'More certificates coming soon',
         'certificates.cert1.title': 'Full-Stack Development Certificate',
         'certificates.cert1.description': 'Certification in full-stack web development with modern technologies.',
-        'certificates.cert1.date': '2024',
+        'certificates.cert1.date': '2026',
 
         // Projects
         'projects.title': 'Projects',
@@ -143,7 +146,10 @@ window.translations = {
         'contact.success': 'Message sent successfully. Thank you for reaching out.',
 
         // Footer
-        footer: '© 2025 Juan De Abreu. Made with TailwindCSS.'
+        footer: '© 2025 Juan De Abreu. Made with TailwindCSS.',
+        'footer.role': 'Full-Stack Developer · React, PHP and MySQL',
+        'footer.availability': 'Open to new opportunities',
+        'footer.contactLabel': 'Direct contact'
     }
 };
 

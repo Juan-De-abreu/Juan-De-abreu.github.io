@@ -347,6 +347,7 @@ article.project-card:hover::before,
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .carousel-track { animation: none; }
+  .animate-ping { animation: none; }
   .reveal {
     opacity: 1;
     visibility: visible;
