@@ -115,8 +115,6 @@ window.translations = {
         'certificates.title': 'Certificates',
         'certificates.subtitle': 'My certifications and professional achievements',
         'certificates.view': 'View certificate',
-        'certificates.opensInNewTab': 'Opens in new tab',
-        'certificates.comingSoon': 'More certificates coming soon',
         'certificates.cert1.title': 'Introduction to AI Development Course',
         'certificates.cert1.description': 'Certificate of attendance · 4 hours · El Nuevo Programador and BIG school',
         'certificates.cert1.date': '02/10/2026',
