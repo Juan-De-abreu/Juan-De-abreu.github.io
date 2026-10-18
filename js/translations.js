@@ -11,9 +11,12 @@ window.translations = {
         name: "Juan De Abreu",
         'nav.home': 'Inicio',
         'nav.projects': 'Proyectos',
+        'nav.certificates': 'Certificados',
         'nav.contact': 'Contacto',
         'lang.es': 'Español',
         'lang.en': 'English',
+        'theme.toggle': 'Cambiar tema claro/oscuro',
+        'theme.label': 'Modo',
         
         // Hero
         'hero.title': 'Full-Stack Developer',
@@ -30,6 +33,14 @@ window.translations = {
         'skills.title': 'Habilidades',
         'skills.subtitle': 'Tecnologías que domino en desarrollo full-stack',
         
+        // Certificados
+        'certificates.title': 'Certificados',
+        'certificates.subtitle': 'Mis certificaciones y logros profesionales',
+        'certificates.view': 'Ver PDF en Drive',
+        'certificates.cert1.title': 'Certificado de Desarrollo Full-Stack',
+        'certificates.cert1.description': 'Certificación en desarrollo web full-stack con tecnologías modernas.',
+        'certificates.cert1.date': '2024',
+
         // Proyectos
         'projects.title': 'Proyectos',
         'projects.subtitle': 'Explora algunos de los últimos trabajos realizados',
@@ -45,6 +56,8 @@ window.translations = {
         // Contacto (formulario)
         'contact.title': 'Contáctame',
         'contact.subtitle': 'Completa el formulario y responderé lo antes posible.',
+        'contact.preferLinkedin': 'Preferiblemente por acá:',
+        'contact.linkedinButton': 'Conectar en LinkedIn',
         'contact.nameLabel': 'Nombre completo',
         'contact.emailLabel': 'Correo electrónico',
         'contact.subjectLabel': 'Asunto',
@@ -69,9 +82,12 @@ window.translations = {
         name: "Juan De Abreu",
         'nav.home': 'Home',
         'nav.projects': 'Projects',
+        'nav.certificates': 'Certificates',
         'nav.contact': 'Contact',
         'lang.es': 'Español',
         'lang.en': 'English',
+        'theme.toggle': 'Toggle light/dark theme',
+        'theme.label': 'Mode',
         
         // Hero
         'hero.title': 'Full-Stack Developer',
@@ -88,6 +104,16 @@ window.translations = {
         'skills.title': 'Skills',
         'skills.subtitle': 'Technologies I master in full-stack development',
         
+        // Certificates
+        'certificates.title': 'Certificates',
+        'certificates.subtitle': 'My certifications and professional achievements',
+        'certificates.view': 'View PDF on Drive',
+        'certificates.opensInNewTab': 'Opens in new tab',
+        'certificates.comingSoon': 'More certificates coming soon',
+        'certificates.cert1.title': 'Full-Stack Development Certificate',
+        'certificates.cert1.description': 'Certification in full-stack web development with modern technologies.',
+        'certificates.cert1.date': '2024',
+
         // Projects
         'projects.title': 'Projects',
         'projects.subtitle': 'Explore some of the latest works',
@@ -102,6 +128,8 @@ window.translations = {
         // Contact (form)
         'contact.title': 'Contact Me',
         'contact.subtitle': 'Fill out the form and I will get back to you as soon as possible.',
+        'contact.preferLinkedin': 'Preferably here:',
+        'contact.linkedinButton': 'Connect on LinkedIn',
         'contact.nameLabel': 'Full name',
         'contact.emailLabel': 'Email address',
         'contact.subjectLabel': 'Subject',

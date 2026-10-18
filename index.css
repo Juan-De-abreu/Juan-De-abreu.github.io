@@ -1,116 +1,343 @@
+/* ============================================
+   Sistema de diseño — Portafolio Juan De Abreu
+   Tema claro/oscuro por variables CSS + tokens
+   Tipografía: Space Grotesk (display) + Inter
+   ============================================ */
 
-*{
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-    margin: 0px;
-    padding: 0px;
-}
-
-
-body{
-    background: black;
-    color: white;
-}
-header{
-    background: blue;
-}
-footer{
-    background: red;
-}
-.scale-105{
-    scale: 1.05;
+/* ---------- Variables de tema ---------- */
+:root {
+  color-scheme: dark;
+  --c-navy-950: 2 6 23;        --c-navy-900: 6 23 53;
+  --c-navy-800: 12 42 74;      --c-navy-700: 17 61 110;
+  --c-navy-600: 22 83 142;
+  --c-slate-200: 226 232 240;  --c-slate-300: 203 213 225;
+  --c-slate-400: 148 163 184;  --c-slate-500: 100 116 139;
+  --c-slate-600: 71 85 105;    --c-slate-700: 51 65 85;
+  --c-slate-800: 30 41 59;     --c-slate-900: 15 23 42;
+  --c-blue-700: 29 78 216;     --c-blue-600: 37 99 235;
+  --c-blue-500: 37 99 235;     --c-blue-400: 59 130 246;
+  --c-blue-300: 96 165 250;
+  --c-sky-300: 125 211 252;
+  --c-cyan-400: 34 211 238;    --c-cyan-500: 6 182 212;
+  --c-red-400: 248 113 113;    --c-emerald-400: 52 211 153;
+  --c-text: 248 250 252;
 }
 
+html.light {
+  color-scheme: light;
+  --c-navy-950: 248 250 252;   --c-navy-900: 241 245 249;
+  --c-navy-800: 226 232 240;   --c-navy-700: 203 213 225;
+  --c-navy-600: 148 163 184;
+  --c-slate-200: 30 41 59;     --c-slate-300: 51 65 85;
+  --c-slate-400: 71 85 105;    --c-slate-500: 100 116 139;
+  --c-slate-600: 148 163 184;  --c-slate-700: 203 213 225;
+  --c-slate-800: 226 232 240;  --c-slate-900: 241 245 249;
+  --c-blue-700: 29 78 216;     --c-blue-600: 37 99 235;
+  --c-blue-500: 37 99 235;     --c-blue-400: 37 99 235;
+  --c-blue-300: 29 78 216;
+  --c-sky-300: 3 105 161;
+  --c-cyan-400: 14 116 144;    --c-cyan-500: 6 182 212;
+  --c-red-400: 185 28 28;      --c-emerald-400: 4 120 87;
+  --c-text: 15 23 42;
+}
+
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(var(--c-navy-950));
+  color: rgb(var(--c-text));
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display,
+h1, h2, h3 {
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+/* En modo claro, los títulos siempre en tinta oscura */
+html.light :is(h1, h2, h3) {
+  color: rgb(15 23 42);
+}
+
+/* Marca de la navbar */
+html.light .nav-brand {
+  color: rgb(15 23 42);
+}
+
+/* En modo claro, todo texto blanco (.text-white) pasa a tinta oscura,
+   porque los fondos que se aclaran lo dejarían invisible.
+   Los elementos con .keep-white (fondos oscuros o de color que NO
+   cambian entre modos) conservan el blanco. */
+html.light .text-white {
+  color: rgb(var(--c-text));
+}
+html.light .keep-white.text-white,
+html.light .keep-white .text-white {
+  color: #ffffff;
+}
+
+/* Flechas de carrusel: su hover era blanco; en claro debe ser tinta oscura */
+html.light .hover\:text-white:hover {
+  color: rgb(var(--c-text));
+}
+
+/* Botón hamburguesa: hover visible sobre fondo claro */
+html.light #mobile-menu-btn:hover {
+  background: rgb(2 6 23 / 0.06);
+}
+
+/* ---------- Selección y scrollbars (adaptan al tema) ---------- */
+::selection {
+  background: rgb(var(--c-blue-600));
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--c-navy-950));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-navy-700));
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--c-navy-600));
+}
+
+/* ---------- Foco visible accesible ---------- */
+:focus-visible {
+  outline: 2px solid rgb(var(--c-blue-400));
+  outline-offset: 2px;
+}
+
+/* ---------- Iconos del botón de tema ----------
+   Muestra solo el modo contrario: en oscuro → sol (pasa a claro),
+   en claro → luna (pasa a oscuro). */
+[data-theme-icon="dark"] { display: none; }
+html.light [data-theme-icon="light"] { display: none; }
+html.light [data-theme-icon="dark"] { display: block; }
+
+/* ---------- Menú móvil ---------- */
 @keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
 }
 
 .mobile-menu-slide {
-    animation: slideDown 0.3s ease-out forwards;
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 .mobile-menu-hide {
-    animation: slideUp 0.2s ease-in forwards;
+  animation: slideUp 0.2s ease-in forwards;
 }
 
-/* Contenedor del carrusel */
+/* ---------- Carrusel de tecnologías del hero ---------- */
 .carousel-container {
   overflow: hidden;
-  width: 100%; /* ancho total del contenedor */
+  width: 100%;
   position: relative;
 }
 
-/* Pista animada */
+.carousel-container::before,
+.carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgb(var(--c-navy-900)), transparent);
+}
+
+.carousel-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgb(var(--c-navy-900)), transparent);
+}
+
+
 .carousel-track {
   display: flex;
-  gap: 0.5rem; /* espacio entre imágenes */
+  gap: 0.5rem;
   animation: scroll-left 20s linear infinite;
-  /* Duplicado para que no se note el salto */
+  will-change: transform;
 }
 
-/* Animación mover todo a la izquierda infinitamente */
+/* Pausa al pasar el mouse para previsualizar los logos */
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-50%));
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.25rem)); }
 }
 
-
+/* ---------- Tarjetas flip de habilidades ---------- */
 .flip-container { perspective: 1000px; }
-.flip-card { 
-  position: relative; 
-  width: 100%; 
-  height: 100%; 
-  transition: transform 0.6s ease; 
-  transform-style: preserve-3d; 
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
 }
+
 .group:hover .flip-card { transform: rotateY(180deg); }
-.flip-front, .flip-back { 
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  backface-visibility: hidden; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.75rem;
 }
+
 .flip-back { transform: rotateY(180deg); }
 
-
-
-/* Ocultar scrollbar en el carrusel */
-#projects-track {
-  -ms-overflow-style: none;   /* IE y Edge */
-  scrollbar-width: none;      /* Firefox */
+@media (hover: none) {
+  .group:hover .flip-card { transform: none; }
 }
 
-#projects-track::-webkit-scrollbar {
-  display: none;              /* Chrome, Safari, Opera */
+/* Modo oscuro: sombra azul en las cards de habilidades para
+   distinguirlas del fondo (en modo claro se conserva la normal) */
+html:not(.light) .flip-container {
+  box-shadow: 0 10px 30px -10px rgb(var(--c-blue-500) / 0.55),
+              0 0 18px -8px rgb(var(--c-blue-400) / 0.35);
+}
+
+html:not(.light) .flip-container:hover {
+  box-shadow: 0 14px 34px -10px rgb(var(--c-blue-500) / 0.7),
+              0 0 22px -8px rgb(var(--c-blue-400) / 0.5);
+}
+
+/* ---------- Ocultar scrollbars en carruseles ---------- */
+#projects-track,
+#certificates-track {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#projects-track::-webkit-scrollbar,
+#certificates-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Tarjetas: hover con elevación ---------- */
+article.certificate-card,
+article.project-card,
+.flip-container {
+  position: relative;
+}
+
+article.certificate-card:hover,
+article.project-card:hover,
+html .flip-container:hover {
+  translate: 0 -6px;
+}
+
+article.certificate-card:active,
+article.project-card:active,
+html .flip-container:active {
+  translate: 0 -2px;
+}
+
+/* Línea de acento que barre el borde superior de las tarjetas */
+article.certificate-card::before,
+article.project-card::before,
+.flip-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(var(--c-blue-400)), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+article.certificate-card:hover::before,
+article.project-card:hover::before,
+.flip-container:hover::before {
+  transform: scaleX(1);
+}
+
+/* ---------- Animación de entrada (reveal) ---------- */
+.reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.55s ease, translate 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* ---------- Movimiento reducido / táctil ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .carousel-track { animation: none; }
+  .reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+  article.certificate-card:hover,
+  article.project-card:hover,
+  html .flip-container:hover {
+    translate: 0 0;
+  }
+  article.certificate-card::before,
+  article.project-card::before,
+  .flip-container::before { display: none; }
+}
+
+@media (hover: none) {
+  article.certificate-card:hover,
+  article.project-card:hover,
+  html .flip-container:hover {
+    translate: 0 0;
+  }
+  article.certificate-card::before,
+  article.project-card::before,
+  .flip-container::before { display: none; }
+}
+
+/* ---------- Secciones: anclaje bajo la navbar ---------- */
+section {
+  scroll-margin-top: 4rem;
+}
+.project-card:hover,
+.certificate-card:hover{
+  box-shadow: 6px 2px 10px rgba(0, 0, 255, 0.2);
 }

@@ -35,6 +35,12 @@ function updateLanguage(lang) {
   // Cambiar título página
   document.title = translations[lang].title;
 
+  // Accesibilidad: aria-label / title traducibles
+  document.querySelectorAll('[data-translate-aria]').forEach(el => {
+    const v = translations[lang][el.getAttribute('data-translate-aria')];
+    if (v) { el.setAttribute('aria-label', v); el.title = v; }
+  });
+
   // Cambiar lang del HTML
   document.documentElement.lang = lang;
 }
@@ -106,74 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Carrusel FUNCIONAL 100%
-document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevBtn = document.getElementById('prev-slide');
-    const nextBtn = document.getElementById('next-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
-    
-    let currentIndex = 0;
-    let autoPlay;
-    
-    function goToSlide(index) {
-        currentIndex = index;
-        track.style.transform = `translateX(-${index * 100}%)`;
-        
-        // Dots
-        dots.forEach((dot, i) => {
-            if (i === index) {
-                dot.classList.add('bg-white', 'scale-125');
-            } else {
-                dot.classList.remove('bg-white', 'scale-125');
-            }
-        });
-    }
-    
-    // Botones
-    prevBtn.onclick = () => {
-        currentIndex = currentIndex > 0 ? currentIndex - 1 : slides.length - 1;
-        goToSlide(currentIndex);
-        clearInterval(autoPlay);
-        restart();
-    };
-    
-    nextBtn.onclick = () => {
-        currentIndex = currentIndex < slides.length - 1 ? currentIndex + 1 : 0;
-        goToSlide(currentIndex);
-        clearInterval(autoPlay);
-        restart();
-    };
-    
-    // Dots
-    dots.forEach((dot, index) => {
-        dot.onclick = () => {
-            goToSlide(index);
-            clearInterval(autoPlay);
-            restart();
-        };
-    });
-    
-    // Auto-play
-    function restart() {
-        clearInterval(autoPlay);
-        autoPlay = setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            goToSlide(currentIndex);
-        }, 8000);
-    }
-    
-    // Hover pause
-    const container = document.querySelector('.carousel-container');
-    container.onmouseenter = () => clearInterval(autoPlay);
-    container.onmouseleave = () => restart();
-    
-    // Start
-    goToSlide(0);
-    restart();
-});
-// Carrusel horizontal profesional
+// Carrusel horizontal de proyectos
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.getElementById('projects-track');
   if (!track) return;
@@ -209,6 +148,98 @@ document.addEventListener('DOMContentLoaded', () => {
   [nextLg, nextSm].forEach(btn => {
     if (btn) btn.addEventListener('click', scrollRight);
   });
+});
+
+// Carrusel de certificados
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.getElementById('certificates-track');
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.certificate-card');
+  if (!cards.length) return;
+
+  const prevLg = document.getElementById('certificates-prev-lg');
+  const nextLg = document.getElementById('certificates-next-lg');
+  const prevSm = document.getElementById('certificates-prev-sm');
+  const nextSm = document.getElementById('certificates-next-sm');
+
+  // ancho de scroll = ancho de una card + gap
+  function getStep() {
+    const card = cards[0];
+    const style = window.getComputedStyle(track);
+    const gap = parseInt(style.columnGap || style.gap || '24', 10);
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function scrollLeft() {
+    track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+  }
+
+  function scrollRight() {
+    track.scrollBy({ left: getStep(), behavior: 'smooth' });
+  }
+
+  [prevLg, prevSm].forEach(btn => {
+    if (btn) btn.addEventListener('click', scrollLeft);
+  });
+
+  [nextLg, nextSm].forEach(btn => {
+    if (btn) btn.addEventListener('click', scrollRight);
+  });
+
+  // Ocultar botones cuando no hay más contenido en esa dirección (solo desktop)
+  function updateButtons() {
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const atStart = track.scrollLeft <= 8;
+    const atEnd = track.scrollLeft >= maxScroll - 8;
+
+    [prevLg, prevSm].forEach(btn => {
+      if (btn) btn.classList.toggle('opacity-40', atStart);
+    });
+    [nextLg, nextSm].forEach(btn => {
+      if (btn) btn.classList.toggle('opacity-40', atEnd);
+    });
+  }
+
+  track.addEventListener('scroll', updateButtons, { passive: true });
+  window.addEventListener('resize', updateButtons);
+  updateButtons();
+});
+
+// Tema claro / oscuro (la preferencia inicial se aplica en <head> sin parpadeo)
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const light = document.documentElement.classList.toggle('light');
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) { /* file:// */ }
+    });
+  });
+});
+
+// Animación de entrada de tarjetas (reveal escalonado)
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.certificate-card, .project-card, .flip-container');
+  if (!cards.length || !('IntersectionObserver' in window)) return;
+
+  cards.forEach(card => {
+    const index = [...(card.parentElement.children)].filter(el => el.classList.contains('certificate-card') || el.classList.contains('project-card') || el.classList.contains('flip-container')).indexOf(card);
+    card.classList.add('reveal');
+    const delay = Math.min(index, 6) * 70;
+    card.style.transitionDelay = delay + 'ms';
+    card.dataset.revealDelay = delay;
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const delay = parseInt(entry.target.dataset.revealDelay || '0', 10);
+      entry.target.classList.add('in-view');
+      setTimeout(() => { entry.target.style.transitionDelay = ''; }, delay + 700);
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  cards.forEach(card => io.observe(card));
 });
 
 
