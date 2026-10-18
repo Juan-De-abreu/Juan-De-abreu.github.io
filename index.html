@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="title">Portafolio Juan De Abreu</title>
+    <meta name="description" content="Portafolio de Juan De Abreu, desarrollador full-stack especializado en React, PHP y MySQL. Proyectos, certificados y contacto.">
     <link rel="shortcut icon" href="public/portafolio2.png" type="image/x-icon">
 
     <!-- Tema: aplica la preferencia antes del primer pintado (sin parpadeo) -->
@@ -117,31 +118,36 @@
       <li><a href="#proyectos" class="hover:text-blue-400 transition" data-translate="nav.projects">Proyectos</a></li>
       <li><a href="#certificados" class="hover:text-blue-400 transition" data-translate="nav.certificates">Certificados</a></li>
       <li><a href="#contacto" class="hover:text-blue-400 transition" data-translate="nav.contact">Contacto</a></li>
-      <button
-        class="lang-toggle keep-white px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-2">
-        <span class="lang-text" data-translate="lang.es">Español</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-        </svg>
-      </button>
-      <button
-        class="theme-toggle px-4 py-2 border border-slate-700 hover:bg-navy-800 rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-2"
-        data-translate-aria="theme.toggle">
-        <svg data-theme-icon="light" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
-        </svg>
-        <svg data-theme-icon="dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
-        </svg>
-        <span data-translate="theme.label">Modo</span>
-      </button>
+      <li>
+        <button
+          class="lang-toggle keep-white px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-2">
+          <span class="lang-text" data-translate="lang.es">Español</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+        </button>
+      </li>
+      <li>
+        <button
+          class="theme-toggle px-4 py-2 border border-slate-700 hover:bg-navy-800 rounded-lg text-sm font-medium transition-all duration-300 flex items-center space-x-2"
+          data-translate-aria="theme.toggle">
+          <svg data-theme-icon="light" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+          </svg>
+          <svg data-theme-icon="dark" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+          </svg>
+          <span data-translate="theme.label">Modo</span>
+        </button>
+      </li>
     </ul>
 
     <!-- Hamburguesa MOBILE SOLO -->
     <div class="lg:hidden ml-4">
-      <button id="mobile-menu-btn" class='p-2 rounded-lg hover:bg-white/20 transition-all'>
+      <button id="mobile-menu-btn" aria-label="Menú de navegación" data-translate-aria="menu.toggle"
+        class='p-2 rounded-lg hover:bg-white/20 transition-all'>
         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M4 6h16M4 12h16M4 18h16" />
@@ -188,6 +194,8 @@
   </div>
 </nav>
 
+    <!-- Contenido principal -->
+    <main>
 
     <!-- Hero -->
     <section id="hero"
@@ -252,7 +260,7 @@
 
 
     <!-- Sobre Mí -->
-    <section class="py-20 md:py-28 bg-navy-900/40 min-h-[80dvh] border-y border-slate-800/60">
+    <section id="sobre-mi" class="py-20 md:py-28 bg-navy-900/40 min-h-[80dvh] border-y border-slate-800/60">
         <div class="max-w-6xl mx-auto px-6" id="about">
             <div class="grid md:grid-cols-2 gap-12 items-center justify-between">
 
@@ -546,10 +554,10 @@
                 </button>
 
                 <!-- Track -->
-                <div id="certificates-track" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4">
+                <div id="certificates-track" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pt-3 pb-4">
 
                     <!-- Certificado 1: abre el PDF en Google Drive -->
-                    <article class="certificate-card group w-[85vw] sm:w-[70vw] md:w-[380px] lg:w-[360px] flex-shrink-0 snap-start bg-navy-900/80 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-blue-400/60 shadow-lg shadow-navy-950/50">
+                    <article class="certificate-card group w-[70vw] sm:w-[62vw] md:w-[380px] lg:w-[360px] flex-shrink-0 snap-start bg-navy-900/80 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-blue-400/60 shadow-lg shadow-navy-950/50">
                         <a href="https://drive.google.com/file/d/1eB4H20H97fSGNGpQ7XHE6BRT1sgZO1Ms/view?usp=sharing"
                             target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden group/img">
                             <img src="public/CertificadoJuanDeAbreu.png" alt="Certificado de Juan De Abreu"
@@ -639,16 +647,16 @@
                     </button>
 
                     <!-- Track: carrusel horizontal -->
-                    <div id="projects-track" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2">
+                    <div id="projects-track" class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-3">
 
                         <!-- CARD 1 – MLB -->
                         <article
-                            class="project-card w-[280px] md:w-[320px] flex flex-col flex-shrink-0 snap-start bg-navy-900/80 rounded-2xl border border-slate-700/80 hover:border-blue-400/60 shadow-lg shadow-navy-950/50 transition-all duration-200 overflow-hidden">
+                            class="project-card w-[260px] md:w-[320px] flex flex-col flex-shrink-0 snap-start bg-navy-900/80 rounded-2xl border border-slate-700/80 hover:border-blue-400/60 shadow-lg shadow-navy-950/50 transition-all duration-200 overflow-hidden">
 
                             <!-- Imagen -->
                             <div
                                 class="h-40 w-full overflow-hidden flex items-center justify-center bg-[#061735]/90 p-6">
-                                <img src="/public/logomlb-removebg-preview.png" alt="MLB App"
+                                <img src="public/logomlb-removebg-preview.png" alt="MLB App"
                                     class="max-h-full max-w-full object-contain">
                             </div>
 
@@ -691,12 +699,12 @@
 
                         <!-- CARD 2 – Invictus Burger -->
                         <article
-                            class="project-card w-[280px] md:w-[320px] flex flex-col flex-shrink-0 snap-start bg-navy-900/80 rounded-2xl border border-slate-700/80 hover:border-blue-400/60 shadow-lg shadow-navy-950/50 transition-all duration-200 overflow-hidden">
+                            class="project-card w-[260px] md:w-[320px] flex flex-col flex-shrink-0 snap-start bg-navy-900/80 rounded-2xl border border-slate-700/80 hover:border-blue-400/60 shadow-lg shadow-navy-950/50 transition-all duration-200 overflow-hidden">
 
                             <!-- Imagen -->
                             <div
                                 class="h-40 w-full overflow-hidden flex items-center justify-center bg-[#061735]/90">
-                                <img src="/public/Invictus burger 1 .png" alt="Invictus burguer Hero"
+                                <img src="public/invictus-burger.png" alt="Invictus Burger"
                                     class="max-h-full max-w-full object-cover">
                             </div>
 
@@ -724,11 +732,6 @@
                             <!-- Footer -->
                             <div
                                 class="px-5 pb-5 pt-3 border-t border-slate-800 flex items-center justify-between">
-                                <a href="" target="_blank"
-                                    data-translate="view-page"
-                                    class="text-xs font-semibold text-blue-300 hover:text-cyan-400 transition-all duration-200">
-                                    Visitar página web
-                                </a>
                                 <a href="https://github.com/Juan-De-abreu/VictusBurguer" target="_blank"
                                     data-translate="projects.code"
                                     class="text-xs font-medium text-slate-400 hover:text-blue-300 transition-all duration-200">
@@ -786,7 +789,7 @@
                                 data-translate="contact.nameLabel">
                                 Nombre completo
                             </label>
-                            <input id="name" name="user_name" type="text" required
+                            <input id="name" name="user_name" type="text" autocomplete="name" required
                                 class="w-full px-4 py-2.5 rounded-lg bg-navy-950 border border-slate-700 text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
                         </div>
 
@@ -795,7 +798,7 @@
                                 data-translate="contact.emailLabel">
                                 Correo electrónico
                             </label>
-                            <input id="email" name="user_email" type="email" required
+                            <input id="email" name="user_email" type="email" autocomplete="email" required
                                 class="w-full px-4 py-2.5 rounded-lg bg-navy-950 border border-slate-700 text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition">
                         </div>
 
@@ -838,8 +841,10 @@
 
 
 
+    </main>
+
     <footer class="bg-navy-950 py-6 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm text-slate-400">
             <p data-translate="footer">© 2025 Juan De Abreu.</p>
         </div>
     </footer>

@@ -50,6 +50,7 @@ html.light {
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -203,6 +204,7 @@ html.light [data-theme-icon="dark"] { display: block; }
   width: 100%;
   height: 100%;
   transition: transform 0.6s ease;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
@@ -213,6 +215,7 @@ html.light [data-theme-icon="dark"] { display: block; }
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -223,9 +226,19 @@ html.light [data-theme-icon="dark"] { display: block; }
 
 .flip-back { transform: rotateY(180deg); }
 
+/* Toque: en pantallas sin hover la card se voltea al tocarla (js/main.js) */
+.flip-container {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (hover: none) {
   .group:hover .flip-card { transform: none; }
+  .flip-container.is-flipped .flip-card { transform: rotateY(180deg); }
 }
+
+/* Teclado: al enfocar con Tab se muestra el reverso */
+.flip-container:focus-visible .flip-card { transform: rotateY(180deg); }
 
 /* Modo oscuro: sombra azul en las cards de habilidades para
    distinguirlas del fondo (en modo claro se conserva la normal) */
@@ -244,10 +257,35 @@ html:not(.light) .flip-container:hover {
 #certificates-track {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  /* El gesto horizontal no se propaga a la página (rebote / ir atrás) */
+  overscroll-behavior-x: contain;
 }
 #projects-track::-webkit-scrollbar,
 #certificates-track::-webkit-scrollbar {
   display: none;
+}
+
+/* ---------- Fundido de bordes del carrusel ----------
+   Se activa desde JS solo cuando queda contenido hacia ese lado.
+   Usa una máscara (no un degradado encima) para que la card que
+   asoma siga viéndose en vez de quedar tapada. */
+.carousel-fade-right {
+  -webkit-mask-image: linear-gradient(to left, transparent 0, #000 20px);
+  mask-image: linear-gradient(to left, transparent 0, #000 20px);
+}
+.carousel-fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px);
+  mask-image: linear-gradient(to right, transparent 0, #000 20px);
+}
+.carousel-fade-left.carousel-fade-right {
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+}
+
+/* Botones de carrusel cuando no hay nada que desplazar */
+.carousel-nav-off {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* ---------- Tarjetas: hover con elevación ---------- */
@@ -294,12 +332,14 @@ article.project-card:hover::before,
 /* ---------- Animación de entrada (reveal) ---------- */
 .reveal {
   opacity: 0;
+  visibility: hidden;
   translate: 0 24px;
   transition: opacity 0.55s ease, translate 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.in-view {
   opacity: 1;
+  visibility: visible;
   translate: 0 0;
 }
 
@@ -309,6 +349,7 @@ article.project-card:hover::before,
   .carousel-track { animation: none; }
   .reveal {
     opacity: 1;
+    visibility: visible;
     translate: none;
     transition: none;
   }
@@ -336,6 +377,16 @@ article.project-card:hover::before,
 /* ---------- Secciones: anclaje bajo la navbar ---------- */
 section {
   scroll-margin-top: 4rem;
+}
+
+/* Altura mínima de "Sobre mí" con fallback para navegadores sin dvh */
+#sobre-mi {
+  min-height: 80vh;
+}
+@supports (height: 100dvh) {
+  #sobre-mi {
+    min-height: 80dvh;
+  }
 }
 .project-card:hover,
 .certificate-card:hover{

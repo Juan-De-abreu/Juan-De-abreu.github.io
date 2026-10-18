@@ -15,7 +15,8 @@ window.translations = {
         'nav.contact': 'Contacto',
         'lang.es': 'Español',
         'lang.en': 'English',
-        'theme.toggle': 'Cambiar tema claro/oscuro',
+        'theme.toggle': 'Modo: cambiar tema claro/oscuro',
+        'menu.toggle': 'Menú de navegación',
         'theme.label': 'Modo',
         
         // Hero
@@ -86,7 +87,8 @@ window.translations = {
         'nav.contact': 'Contact',
         'lang.es': 'Español',
         'lang.en': 'English',
-        'theme.toggle': 'Toggle light/dark theme',
+        'theme.toggle': 'Mode: toggle light/dark theme',
+        'menu.toggle': 'Navigation menu',
         'theme.label': 'Mode',
         
         // Hero

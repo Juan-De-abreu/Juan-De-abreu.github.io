@@ -1,10 +1,15 @@
 // Inicializar EmailJS con tu Public Key
+// (si el CDN de EmailJS no cargó, el formulario avisa en vez de romperse)
 (function () {
-  emailjs.init("FdZqEK1eQxBoOz6Sh"); // ej: "PUBLIC_XXXXXXXXXXXX"
+  if (window.emailjs && typeof emailjs.init === 'function') {
+    emailjs.init("FdZqEK1eQxBoOz6Sh"); // ej: "PUBLIC_XXXXXXXXXXXX"
+  }
 })();
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("contact-form");
+  if (!form) return;
+
   const errorEl = document.getElementById("form-error");
   const successEl = document.getElementById("form-success");
   const spinner = document.getElementById("form-spinner");
@@ -42,6 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!emailRegex.test(email)) {
       showError("contact.error.email");
+      return;
+    }
+
+    if (!window.emailjs || typeof emailjs.sendForm !== "function") {
+      showError("contact.error.server");
       return;
     }
 
