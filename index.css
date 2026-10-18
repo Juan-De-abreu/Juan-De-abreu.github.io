@@ -393,3 +393,11 @@ section {
 .certificate-card:hover{
   box-shadow: 6px 2px 10px rgba(0, 0, 255, 0.2);
 }
+
+/* ---------- Botón de CV ----------
+   La clase .cv-off oculta los botones de descarga mientras no exista
+   public/CV-Juan-De-Abreu.pdf. La activa/desactiva `npm run sync:cv`
+   (se ejecuta solo dentro de `npm run build`). */
+[data-cv-link].cv-off {
+  display: none;
+}

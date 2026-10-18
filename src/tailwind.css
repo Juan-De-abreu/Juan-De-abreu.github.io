@@ -1,0 +1,5 @@
+/* Entrada de Tailwind: se compila a public/tailwind.css con `npm run build:css`.
+   Los estilos propios del sitio viven en index.css (se carga despues de este archivo). */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -5,7 +5,7 @@ window.translations = {
         'contact': 'Contactar',
 
         // Título página
-        title: "Portafolio Juan De Abreu",
+        title: "Juan De Abreu · Desarrollador Full-Stack (React, PHP y MySQL)",
         
         // Navbar
         name: "Juan De Abreu",
@@ -23,6 +23,7 @@ window.translations = {
         'hero.title': 'Full-Stack Developer',
         'hero.subtitle': 'Especializado en React, TailwindCSS, PHP y apps deportivas',
         'hero.cta': 'Ver Proyectos',
+        'cv.download': 'Descargar CV',
         'hero.year': '1 año de experiencia',
         
         // Sobre Mí
@@ -38,9 +39,9 @@ window.translations = {
         'certificates.title': 'Certificados',
         'certificates.subtitle': 'Mis certificaciones y logros profesionales',
         'certificates.view': 'Ver certificado',
-        'certificates.cert1.title': 'Certificado de Desarrollo Full-Stack',
-        'certificates.cert1.description': 'Certificación en desarrollo web full-stack con tecnologías modernas.',
-        'certificates.cert1.date': '2026',
+        'certificates.cert1.title': 'Curso de Iniciación al Desarrollo con IA',
+        'certificates.cert1.description': 'Certificado de asistencia · 4 horas · El Nuevo Programador y BIG school',
+        'certificates.cert1.date': '02/10/2026',
 
         // Proyectos
         'projects.title': 'Proyectos',
@@ -80,7 +81,7 @@ window.translations = {
         'contact': 'Contact',
         
         // Título página
-        title: "Juan De Abreu's Portfolio",
+        title: "Juan De Abreu · Full-Stack Developer (React, PHP & MySQL)",
         
         // Navbar
         name: "Juan De Abreu",
@@ -98,6 +99,7 @@ window.translations = {
         'hero.title': 'Full-Stack Developer',
         'hero.subtitle': 'Specialized in React, TailwindCSS, PHP and sports apps',
         'hero.cta': 'View Projects',
+        'cv.download': 'Download CV',
         'hero.year': '1 year of experience',
         
         // Sobre Mí
@@ -115,9 +117,9 @@ window.translations = {
         'certificates.view': 'View certificate',
         'certificates.opensInNewTab': 'Opens in new tab',
         'certificates.comingSoon': 'More certificates coming soon',
-        'certificates.cert1.title': 'Full-Stack Development Certificate',
-        'certificates.cert1.description': 'Certification in full-stack web development with modern technologies.',
-        'certificates.cert1.date': '2026',
+        'certificates.cert1.title': 'Introduction to AI Development Course',
+        'certificates.cert1.description': 'Certificate of attendance · 4 hours · El Nuevo Programador and BIG school',
+        'certificates.cert1.date': '02/10/2026',
 
         // Projects
         'projects.title': 'Projects',

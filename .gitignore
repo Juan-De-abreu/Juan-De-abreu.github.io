@@ -1,0 +1,3 @@
+# Dependencias de desarrollo (no se suben al sitio)
+node_modules/
+npm-debug.log*

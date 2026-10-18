@@ -4,9 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="title">Portafolio Juan De Abreu</title>
+    <title data-translate="title">Juan De Abreu · Desarrollador Full-Stack (React, PHP y MySQL)</title>
     <meta name="description" content="Portafolio de Juan De Abreu, desarrollador full-stack especializado en React, PHP y MySQL. Proyectos, certificados y contacto.">
+    <link rel="canonical" href="https://juan-de-abreu.github.io/">
+
+    <!-- Previsualización al compartir (LinkedIn, WhatsApp, X) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Juan De Abreu · Portafolio">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:url" content="https://juan-de-abreu.github.io/">
+    <meta property="og:title" content="Juan De Abreu · Desarrollador Full-Stack (React, PHP y MySQL)">
+    <meta property="og:description" content="Proyectos, certificados y contacto: React, PHP, MySQL y TailwindCSS.">
+    <meta property="og:image" content="https://juan-de-abreu.github.io/public/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Juan De Abreu, desarrollador full-stack: React, PHP y MySQL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Juan De Abreu · Desarrollador Full-Stack (React, PHP y MySQL)">
+    <meta name="twitter:description" content="Proyectos, certificados y contacto: React, PHP, MySQL y TailwindCSS.">
+    <meta name="twitter:image" content="https://juan-de-abreu.github.io/public/og-image.png">
+
     <link rel="shortcut icon" href="public/portafolio2.png" type="image/x-icon">
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Juan De Abreu",
+            "jobTitle": "Desarrollador Full-Stack",
+            "url": "https://juan-de-abreu.github.io/",
+            "image": "https://juan-de-abreu.github.io/public/og-image.png",
+            "description": "Desarrollador full-stack especializado en React, PHP y MySQL.",
+            "sameAs": [
+                "https://github.com/Juan-De-abreu",
+                "https://www.linkedin.com/in/ing-juan-de-abreu/"
+            ],
+            "knowsAbout": ["React", "JavaScript", "PHP", "MySQL", "TailwindCSS", "Node.js"]
+        }
+    </script>
 
     <!-- Tema: aplica la preferencia antes del primer pintado (sin parpadeo) -->
     <script>
@@ -18,83 +54,9 @@
         } catch (e) { /* file:// sin localStorage */ }
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Tokens mapeados a variables CSS → cambio de tema automático
-                        navy: {
-                            950: 'rgb(var(--c-navy-950) / <alpha-value>)',
-                            900: 'rgb(var(--c-navy-900) / <alpha-value>)',
-                            800: 'rgb(var(--c-navy-800) / <alpha-value>)',
-                            700: 'rgb(var(--c-navy-700) / <alpha-value>)',
-                            600: 'rgb(var(--c-navy-600) / <alpha-value>)',
-                        },
-                        slate: {
-                            900: 'rgb(var(--c-slate-900) / <alpha-value>)',
-                            800: 'rgb(var(--c-slate-800) / <alpha-value>)',
-                            700: 'rgb(var(--c-slate-700) / <alpha-value>)',
-                            600: 'rgb(var(--c-slate-600) / <alpha-value>)',
-                            500: 'rgb(var(--c-slate-500) / <alpha-value>)',
-                            400: 'rgb(var(--c-slate-400) / <alpha-value>)',
-                            300: 'rgb(var(--c-slate-300) / <alpha-value>)',
-                            200: 'rgb(var(--c-slate-200) / <alpha-value>)',
-                        },
-                        blue: {
-                            700: 'rgb(var(--c-blue-700) / <alpha-value>)',
-                            600: 'rgb(var(--c-blue-600) / <alpha-value>)',
-                            500: 'rgb(var(--c-blue-500) / <alpha-value>)',
-                            400: 'rgb(var(--c-blue-400) / <alpha-value>)',
-                            300: 'rgb(var(--c-blue-300) / <alpha-value>)',
-                        },
-                        sky: {
-                            300: 'rgb(var(--c-sky-300) / <alpha-value>)',
-                        },
-                        cyan: {
-                            400: 'rgb(var(--c-cyan-400) / <alpha-value>)',
-                            500: 'rgb(var(--c-cyan-500) / <alpha-value>)',
-                        },
-                        red: {
-                            400: 'rgb(var(--c-red-400) / <alpha-value>)',
-                        },
-                        emerald: {
-                            400: 'rgb(var(--c-emerald-400) / <alpha-value>)',
-                        },
-                        // Alias para compatibilidad
-                        primario: 'rgb(var(--c-navy-900) / <alpha-value>)',
-                        segundario: 'rgb(var(--c-navy-800) / <alpha-value>)',
-                        oscuro: 'rgb(var(--c-navy-950) / <alpha-value>)',
-                        resaltar: 'rgb(var(--c-blue-600) / <alpha-value>)',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
-                    },
-                    animation: {
-                        'slide-in': 'slideIn 0.5s ease-out forwards',
-                        'fade-in': 'fadeIn 0.6s ease-out forwards',
-                        'scale-in': 'scaleIn 0.4s ease-out forwards',
-                    },
-                    keyframes: {
-                        slideIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        scaleIn: {
-                            '0%': { opacity: '0', transform: 'scale(0.95)' },
-                            '100%': { opacity: '1', transform: 'scale(1)' },
-                        },
-                    },
-                }
-            }
-        }
-    </script>
+
+    <!-- Tailwind compilado localmente (se genera con `npm run build:css`) -->
+    <link rel="stylesheet" href="public/tailwind.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,9 +171,21 @@
             <p class="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
                 data-translate="hero.subtitle">Especializado en React, TailwindCSS, PHP, JS, SQL y apps deportivas</p>
 
-            <a href="#proyectos"
-                class="bg-blue-600 hover:bg-blue-500 keep-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:scale-[1.03] inline-block"
-                data-translate="hero.cta">Ver Proyectos</a>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#proyectos"
+                    class="bg-blue-600 hover:bg-blue-500 keep-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg shadow-blue-600/25 hover:shadow-blue-500/40 hover:scale-[1.03] inline-block"
+                    data-translate="hero.cta">Ver Proyectos</a>
+
+                <!-- Se activa cuando existe public/CV-Juan-De-Abreu.pdf (npm run sync:cv) -->
+                <a href="public/CV-Juan-De-Abreu.pdf" download data-cv-link
+                    class="cv-off px-8 py-4 rounded-full text-lg font-semibold border border-slate-600 text-slate-200 hover:border-blue-400 hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span data-translate="cv.download">Descargar CV</span>
+                </a>
+            </div>
 
         </div>
 
@@ -560,8 +534,9 @@
                     <article class="certificate-card group w-[70vw] sm:w-[62vw] md:w-[380px] lg:w-[360px] flex-shrink-0 snap-start bg-navy-900/80 border border-slate-700/80 rounded-2xl overflow-hidden hover:border-blue-400/60 shadow-lg shadow-navy-950/50">
                         <a href="https://drive.google.com/file/d/1eB4H20H97fSGNGpQ7XHE6BRT1sgZO1Ms/view?usp=sharing"
                             target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden group/img">
-                            <img src="public/CertificadoJuanDeAbreu.png" alt="Certificado de Juan De Abreu"
-                                loading="lazy"
+                            <img src="public/certificado-juan-de-abreu.webp"
+                                alt="Certificado del curso de Iniciación al Desarrollo con IA de Juan De Abreu"
+                                width="720" height="535" loading="lazy"
                                 class="w-full h-56 md:h-64 object-cover object-top group-hover/img:scale-105 transition-transform duration-500">
                             <!-- Overlay con acción -->
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-5">
@@ -574,13 +549,13 @@
                             </div>
                         </a>
                         <div class="p-5 md:p-6">
-                            <h3 class="text-lg font-display font-semibold text-white mb-2" data-translate="certificates.cert1.title">Certificado de Desarrollo Full-Stack</h3>
-                            <p class="text-sm text-slate-400 leading-relaxed mb-4" data-translate="certificates.cert1.description">Certificación en desarrollo web full-stack con tecnologías modernas.</p>
+                            <h3 class="text-lg font-display font-semibold text-white mb-2" data-translate="certificates.cert1.title">Curso de Iniciación al Desarrollo con IA</h3>
+                            <p class="text-sm text-slate-400 leading-relaxed mb-4" data-translate="certificates.cert1.description">Certificado de asistencia · 4 horas · El Nuevo Programador y BIG school</p>
                             <div class="flex items-center gap-2 text-xs text-slate-500">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <span data-translate="certificates.cert1.date">2026</span>
+                                <span data-translate="certificates.cert1.date">02/10/2026</span>
                             </div>
                         </div>
                     </article>
@@ -704,7 +679,7 @@
                             <!-- Imagen -->
                             <div
                                 class="h-40 w-full overflow-hidden flex items-center justify-center bg-[#061735]/90">
-                                <img src="public/invictus-burger.png" alt="Invictus Burger"
+                                <img src="public/invictus-burger.webp" alt="Invictus Burger"
                                     class="max-h-full max-w-full object-cover">
                             </div>
 
@@ -861,6 +836,15 @@
 
                 <!-- Contacto directo -->
                 <nav aria-label="Contacto directo" data-translate-aria="footer.contactLabel" class="flex flex-wrap items-center gap-3">
+                    <!-- Se activa cuando existe public/CV-Juan-De-Abreu.pdf (npm run sync:cv) -->
+                    <a href="public/CV-Juan-De-Abreu.pdf" download data-cv-link
+                        class="cv-off inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 text-sm font-medium text-slate-200 hover:border-blue-400/60 hover:text-blue-300 transition-all duration-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span data-translate="cv.download">Descargar CV</span>
+                    </a>
                     <a href="mailto:juan_abreu_2005@hotmail.com"
                         class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-700 text-sm font-medium text-slate-200 hover:border-blue-400/60 hover:text-blue-300 transition-all duration-200">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
